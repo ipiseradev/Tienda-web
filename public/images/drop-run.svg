@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Drop running">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0b12" />
+      <stop offset="0.55" stop-color="#141623" />
+      <stop offset="1" stop-color="#2a2c3b" />
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="40%" r="65%">
+      <stop offset="0" stop-color="#b7ff1a" stop-opacity="0.32" />
+      <stop offset="1" stop-color="#b7ff1a" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f111b" />
+      <stop offset="1" stop-color="#1b1e2d" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)" />
+  <rect width="1200" height="700" fill="url(#glow)" />
+
+  <g opacity="0.16">
+    <path d="M160 560c240-140 460-200 720-200s300 40 360 76" fill="none" stroke="#fff" stroke-width="16" />
+    <path d="M160 170c240 120 440 150 680 150s330-24 400-58" fill="none" stroke="#b7ff1a" stroke-width="10" />
+  </g>
+
+  <g transform="translate(150 130)">
+    <rect x="0" y="0" width="430" height="440" rx="72" fill="url(#card)" />
+    <rect x="40" y="54" width="350" height="18" rx="9" fill="#ffffff" opacity="0.14" />
+    <path d="M70 320c120-10 220-38 310-98 54-36 104-56 150-56h28v70H240c-46 0-76 40-64 84l6 22H70v-22z" fill="#2a2c3b" opacity="0.9"/>
+    <rect x="52" y="354" width="326" height="44" rx="22" fill="#141623"/>
+    <rect x="70" y="370" width="190" height="12" rx="6" fill="#b7ff1a" opacity="0.88"/>
+  </g>
+
+  <g transform="translate(620 130)">
+    <rect x="0" y="0" width="430" height="440" rx="72" fill="#1b1e2d" />
+    <rect x="48" y="52" width="334" height="18" rx="9" fill="#ffffff" opacity="0.14" />
+    <path d="M90 140c0-34 28-62 62-62h126c34 0 62 28 62 62v10h-250v-10z" fill="#0f111b"/>
+    <path d="M120 150h190v260c0 34-28 62-62 62h-66c-34 0-62-28-62-62V150z" fill="#0f111b"/>
+    <path d="M146 176h138v210c0 24-20 44-44 44h-50c-24 0-44-20-44-44V176z" fill="#141623"/>
+    <rect x="86" y="354" width="258" height="44" rx="22" fill="#0f111b" opacity="0.9"/>
+    <rect x="110" y="370" width="140" height="12" rx="6" fill="#ffffff" opacity="0.16"/>
+  </g>
+</svg>
+

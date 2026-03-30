@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Bolso deportivo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b2238" />
+      <stop offset="0.55" stop-color="#2b3351" />
+      <stop offset="1" stop-color="#4b5a86" />
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#b7ff1a" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#b7ff1a" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect width="1200" height="700" fill="url(#glow)"/>
+
+  <g opacity="0.14">
+    <path d="M160 560c240-120 450-160 690-160s320 40 390 76" fill="none" stroke="#fff" stroke-width="12" />
+  </g>
+
+  <g transform="translate(240 220)">
+    <path d="M340 0h80c80 0 150 60 170 140l18 74h82c50 0 92 40 92 90v140c0 60-50 110-110 110H130c-60 0-110-50-110-110V304c0-50 42-90 92-90h82l18-74C230 60 260 0 340 0z" fill="#0f111b"/>
+    <path d="M356 38h48c64 0 120 48 136 112l16 64h62c34 0 62 28 62 62v160c0 44-36 80-80 80H164c-44 0-80-36-80-80V276c0-34 28-62 62-62h62l16-64c16-64 72-112 136-112z" fill="#1b1e2d"/>
+    <path d="M308 92c12-30 40-50 72-50s60 20 72 50" fill="none" stroke="#b7ff1a" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
+    <rect x="200" y="320" width="400" height="18" rx="9" fill="#ffffff" opacity="0.14"/>
+    <rect x="250" y="356" width="300" height="12" rx="6" fill="#ffffff" opacity="0.12"/>
+    <circle cx="170" cy="420" r="22" fill="#141623"/>
+    <circle cx="630" cy="420" r="22" fill="#141623"/>
+  </g>
+</svg>
+

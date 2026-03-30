@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-label="Atleta entrenando">
+  <defs>
+    <radialGradient id="bg" cx="55%" cy="42%" r="70%">
+      <stop offset="0" stop-color="#0a0b12" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0a0b12" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="volt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b7ff1a" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#b7ff1a" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="ember" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff4a1f" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#ff4a1f" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feColorMatrix
+        in="b"
+        type="matrix"
+        values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 .55 0"
+        result="c"
+      />
+      <feMerge>
+        <feMergeNode in="c"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="grain" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="saturate" values="0" />
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.12" />
+      </feComponentTransfer>
+    </filter>
+  </defs>
+
+  <rect width="900" height="900" fill="url(#bg)"/>
+
+  <!-- Motion trails -->
+  <g opacity="0.35">
+    <path d="M170 650c130-120 260-190 420-220 120-22 220-18 320 4" fill="none" stroke="url(#volt)" stroke-width="18" stroke-linecap="round"/>
+    <path d="M170 690c150-130 290-210 460-240 120-22 210-16 280 4" fill="none" stroke="url(#ember)" stroke-width="14" stroke-linecap="round"/>
+  </g>
+
+  <!-- Athlete silhouette (stylized) -->
+  <g filter="url(#softGlow)">
+    <!-- Head -->
+    <circle cx="560" cy="210" r="44" fill="#0f111b"/>
+    <circle cx="555" cy="205" r="40" fill="#1b1e2d"/>
+
+    <!-- Torso -->
+    <path d="M520 260c64-26 124-18 170 30 30 32 36 70 24 104-18 52-62 84-118 88-54 4-102-14-134-56-36-46-20-138 58-166z" fill="#0f111b"/>
+    <path d="M534 278c52-18 96-10 130 26 22 24 26 52 18 78-12 40-44 66-90 70-44 4-82-10-108-42-28-34-14-106 50-132z" fill="#1b1e2d"/>
+
+    <!-- Arm front -->
+    <path d="M640 310c42 0 78 26 96 70 10 24 6 48-10 64-16 16-40 18-60 4-18-14-30-36-40-62-10-26-10-52 14-70z" fill="#0f111b"/>
+    <path d="M632 326c32 0 58 20 72 54 8 18 4 34-8 46-12 12-30 14-44 4-14-10-22-28-30-48-8-20-8-40 10-56z" fill="#1b1e2d"/>
+
+    <!-- Leg back -->
+    <path d="M520 470c40 0 84 34 94 76 10 40-14 82-56 98-50 18-90-6-106-46-12-30-6-68 18-98 14-18 28-30 50-30z" fill="#0f111b"/>
+    <path d="M520 486c30 0 62 26 70 58 8 30-10 62-42 74-38 14-68-6-80-36-10-22-4-52 14-76 12-14 22-20 38-20z" fill="#1b1e2d"/>
+
+    <!-- Leg front -->
+    <path d="M612 450c34-28 86-24 116 10 26 30 26 72 0 100-34 36-88 40-122 4-20-22-22-54-8-82 6-12 10-22 14-32z" fill="#0f111b"/>
+    <path d="M616 468c26-20 66-16 88 8 20 22 20 54 0 76-26 28-68 30-94 4-14-16-16-40-6-60 4-8 8-18 12-28z" fill="#1b1e2d"/>
+
+    <!-- Volt highlight (brand energy) -->
+    <path d="M538 376c22-14 48-18 74-14" fill="none" stroke="#b7ff1a" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+    <path d="M512 560c18 18 44 24 72 16" fill="none" stroke="#b7ff1a" stroke-width="10" stroke-linecap="round" opacity="0.75"/>
+  </g>
+
+  <!-- Grain overlay -->
+  <rect width="900" height="900" filter="url(#grain)" opacity="0.7"/>
+</svg>
+

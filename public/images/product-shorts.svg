@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Short deportivo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2f4b7c" />
+      <stop offset="0.55" stop-color="#3e639c" />
+      <stop offset="1" stop-color="#6f98d6" />
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#b7ff1a" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#b7ff1a" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)" />
+  <rect width="1200" height="700" fill="url(#glow)" />
+
+  <g opacity="0.15">
+    <path d="M120 180c240 90 430 120 670 120s330-26 410-62" fill="none" stroke="#fff" stroke-width="18" />
+    <path d="M160 540c240-120 450-160 690-160s320 40 390 76" fill="none" stroke="#fff" stroke-width="12" />
+  </g>
+
+  <g transform="translate(320 150)">
+    <path d="M80 120c0-52 42-94 94-94h412c52 0 94 42 94 94v74c0 30-14 58-38 76l-64 48 32 214c8 52-32 98-84 98H370l-40-176-40 176H174c-52 0-92-46-84-98l32-214-64-48c-24-18-38-46-38-76v-74z" fill="#0f111b"/>
+    <path d="M110 128c0-42 34-76 76-76h382c42 0 76 34 76 76v60c0 24-12 48-30 62l-62 46 30 198c6 40-24 76-64 76H392l-44-190-44 190H182c-40 0-70-36-64-76l30-198-62-46c-18-14-30-38-30-62v-60z" fill="#1b1e2d"/>
+    <path d="M250 60h320" stroke="#ffffff" stroke-width="12" stroke-linecap="round" opacity="0.18"/>
+    <path d="M364 60v40" stroke="#b7ff1a" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+    <path d="M456 60v40" stroke="#b7ff1a" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+    <path d="M330 256c52 26 92 26 144 0" fill="none" stroke="#2a2c3b" stroke-width="14" stroke-linecap="round" opacity="0.9"/>
+  </g>
+</svg>
+

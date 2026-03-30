@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Botella termica">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7a4a14" />
+      <stop offset="0.55" stop-color="#a96a1f" />
+      <stop offset="1" stop-color="#d9a85a" />
+    </linearGradient>
+    <radialGradient id="glow" cx="40%" cy="30%" r="70%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)" />
+  <rect width="1200" height="700" fill="url(#glow)" />
+
+  <g opacity="0.12">
+    <path d="M120 210c240 80 430 110 670 110s330-24 410-58" fill="none" stroke="#fff" stroke-width="18" />
+    <path d="M160 560c240-110 450-150 690-150s320 40 390 72" fill="none" stroke="#fff" stroke-width="12" />
+  </g>
+
+  <g transform="translate(470 90)">
+    <rect x="80" y="0" width="180" height="80" rx="40" fill="#0f111b" opacity="0.9"/>
+    <rect x="112" y="22" width="116" height="36" rx="18" fill="#1b1e2d"/>
+    <path d="M92 84h156c44 0 80 36 80 80v340c0 88-72 160-160 160S88 592 88 504V164c0-44 36-80 80-80z" fill="#0f111b"/>
+    <path d="M112 110h116c36 0 66 30 66 66v316c0 74-60 134-134 134S92 566 92 492V176c0-36 30-66 66-66z" fill="#1b1e2d"/>
+    <rect x="138" y="210" width="164" height="16" rx="8" fill="#ffffff" opacity="0.18"/>
+    <rect x="138" y="246" width="124" height="12" rx="6" fill="#b7ff1a" opacity="0.85"/>
+    <circle cx="170" cy="392" r="14" fill="#b7ff1a" opacity="0.9"/>
+    <path d="M160 520c32 24 76 24 108 0" fill="none" stroke="#2a2c3b" stroke-width="16" stroke-linecap="round" opacity="0.85"/>
+  </g>
+</svg>
+

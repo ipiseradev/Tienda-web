@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Zapatillas running">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0b12" />
+      <stop offset="0.55" stop-color="#141623" />
+      <stop offset="1" stop-color="#2a2c3b" />
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="40%" r="60%">
+      <stop offset="0" stop-color="#b7ff1a" stop-opacity="0.35" />
+      <stop offset="1" stop-color="#b7ff1a" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)" />
+  <rect width="1200" height="700" fill="url(#glow)" />
+
+  <g opacity="0.18">
+    <path d="M140 560c180-180 390-270 630-270s310 60 390 120" fill="none" stroke="#fff" stroke-width="20" />
+    <path d="M180 610c200-220 420-330 680-330s340 70 420 140" fill="none" stroke="#b7ff1a" stroke-width="12" />
+  </g>
+
+  <g transform="translate(210 250)">
+    <path d="M90 240c140-12 250-46 360-118 56-36 118-58 178-58h176c62 0 110 48 110 110v34c0 62-48 110-110 110H140c-70 0-118-60-98-120l18-52c6-18 16-28 30-30z" fill="#0f111b"/>
+    <path d="M160 170c160-34 280-82 360-140 34-24 78-40 120-40h156c44 0 80 36 80 80v22c0 44-36 80-80 80H190c-46 0-76-40-64-84l16-56c4-14 10-20 18-22z" fill="#1b1e2d"/>
+    <path d="M250 186h380" stroke="#2a2c3b" stroke-width="18" stroke-linecap="round" opacity="0.9"/>
+    <path d="M250 214h310" stroke="#2a2c3b" stroke-width="12" stroke-linecap="round" opacity="0.9"/>
+    <path d="M620 110c54 0 98 44 98 98v14H620c-34 0-62-28-62-62v-50h62z" fill="#141623"/>
+    <rect x="120" y="250" width="820" height="56" rx="28" fill="#141623"/>
+    <rect x="150" y="268" width="520" height="10" rx="5" fill="#b7ff1a" opacity="0.9"/>
+    <rect x="690" y="268" width="210" height="10" rx="5" fill="#ffffff" opacity="0.18"/>
+    <g opacity="0.85">
+      <circle cx="340" cy="160" r="10" fill="#b7ff1a"/>
+      <circle cx="390" cy="152" r="10" fill="#b7ff1a"/>
+      <circle cx="440" cy="144" r="10" fill="#b7ff1a"/>
+      <circle cx="490" cy="136" r="10" fill="#b7ff1a"/>
+    </g>
+  </g>
+</svg>
+

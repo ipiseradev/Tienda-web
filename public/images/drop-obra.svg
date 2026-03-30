@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="img" aria-label="Drop obra">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0b12"/>
+      <stop offset="0.5" stop-color="#141623"/>
+      <stop offset="1" stop-color="#2a2c3b"/>
+    </linearGradient>
+    <radialGradient id="g" cx="70%" cy="35%" r="60%">
+      <stop offset="0" stop-color="#ff5f1f" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ff5f1f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1400" height="800" fill="url(#bg)"/>
+  <rect width="1400" height="800" fill="url(#g)"/>
+  <g opacity="0.18" stroke="#ffffff" stroke-width="12">
+    <path d="M220 560c160-220 360-340 620-340s420 110 520 220" fill="none"/>
+  </g>
+  <g transform="translate(200 160)">
+    <rect x="0" y="0" width="1000" height="520" rx="90" fill="#ffffff" opacity="0.06"/>
+    <rect x="70" y="80" width="420" height="220" rx="70" fill="#0a0b12" opacity="0.86"/>
+    <rect x="540" y="80" width="380" height="220" rx="70" fill="#ffffff" opacity="0.10"/>
+    <rect x="70" y="330" width="850" height="140" rx="70" fill="#ffffff" opacity="0.10"/>
+    <rect x="100" y="360" width="420" height="16" rx="8" fill="#b7ff1a" opacity="0.85"/>
+    <rect x="530" y="360" width="220" height="16" rx="8" fill="#ff5f1f" opacity="0.85"/>
+  </g>
+</svg>

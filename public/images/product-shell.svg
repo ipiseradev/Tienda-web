@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Campera corta viento">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0b12" />
+      <stop offset="0.55" stop-color="#141623" />
+      <stop offset="1" stop-color="#2a2c3b" />
+    </linearGradient>
+    <radialGradient id="glow" cx="35%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#ff4a1f" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#ff4a1f" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)" />
+  <rect width="1200" height="700" fill="url(#glow)" />
+
+  <g opacity="0.16">
+    <path d="M140 200c220 110 420 140 650 140s320-30 410-70" fill="none" stroke="#fff" stroke-width="18" />
+    <path d="M180 560c240-120 450-160 690-160s320 40 390 76" fill="none" stroke="#b7ff1a" stroke-width="10" />
+  </g>
+
+  <g transform="translate(330 120)">
+    <path d="M236 50c-70 20-126 60-184 126l-28 32 92 92 56-52v340c0 44 36 80 80 80h296c44 0 80-36 80-80V248l56 52 92-92-28-32c-58-66-114-106-184-126-24 36-62 56-112 60h-60c-50-4-88-24-112-60z" fill="#0f111b"/>
+    <path d="M258 74c-56 18-100 50-146 100l-16 18 56 56 46-44v358c0 30 24 54 54 54h264c30 0 54-24 54-54V204l46 44 56-56-16-18c-46-50-90-82-146-100-18 28-46 44-86 48h-40c-40-4-68-20-86-48z" fill="#1b1e2d"/>
+    <path d="M390 164v420" stroke="#2a2c3b" stroke-width="14" opacity="0.8"/>
+    <path d="M390 220c26 18 52 18 78 0" fill="none" stroke="#b7ff1a" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+    <rect x="300" y="300" width="180" height="12" rx="6" fill="#ffffff" opacity="0.16"/>
+    <rect x="322" y="334" width="136" height="10" rx="5" fill="#ffffff" opacity="0.12"/>
+  </g>
+</svg>
+

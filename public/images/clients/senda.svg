@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="Senda Logística">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0A0B12"/>
+      <stop offset="1" stop-color="#FF7C3F"/>
+    </linearGradient>
+  </defs>
+  <circle cx="48" cy="48" r="46" fill="url(#g)"/>
+  <circle cx="48" cy="48" r="45" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+  <text x="48" y="54" text-anchor="middle" font-family="Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff" letter-spacing="1">SL</text>
+</svg>
+
