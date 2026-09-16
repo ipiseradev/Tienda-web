@@ -254,6 +254,13 @@ export const categories = [
   }
 ];
 
+export const trustBar = [
+  { icon: "truck", label: "Envíos a todo el país", detail: "24–72h según zona" },
+  { icon: "shield", label: "Cambios y devoluciones", detail: "7 días, sin vueltas" },
+  { icon: "card", label: "Mercado Pago o contra reembolso", detail: "Elegís cómo pagar" },
+  { icon: "whatsapp", label: "Atención por WhatsApp", detail: "Respuesta en <2h" }
+];
+
 export const services = [
   {
     title: "Envío rápido",
@@ -356,6 +363,16 @@ export const faqs = [
     question: "¿Cómo funcionan los cambios?",
     answer:
       "Tenés 7 días para cambios (demo), con etiqueta y prenda sin uso. Coordinamos por WhatsApp."
+  },
+  {
+    question: "¿Cuánto dura la tela y se deforma con el uso?",
+    answer:
+      "Son telas técnicas pensadas para entreno frecuente: no pierden forma con lavados normales. Evitá secadora y quedan como el primer día."
+  },
+  {
+    question: "¿Y si no me queda o no me convence?",
+    answer:
+      "Tranquilo: tenés 7 días para cambiarla por otro talle o color, sin vueltas. Nos escribís por WhatsApp y coordinamos."
   }
 ];
 

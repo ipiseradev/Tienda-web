@@ -346,8 +346,9 @@ export default function CartDrawer({ site }) {
                     className="focus-ring mt-2 w-full rounded-2xl border border-steel-200 bg-white px-4 py-3 text-sm text-ink-950"
                   >
                     <option>A coordinar</option>
+                    <option>Mercado Pago</option>
+                    <option>Contra reembolso</option>
                     <option>Transferencia</option>
-                    <option>Tarjeta</option>
                     <option>Efectivo</option>
                   </select>
                 </div>

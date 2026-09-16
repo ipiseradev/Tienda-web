@@ -1,11 +1,18 @@
-import { useMemo, useState } from "react";
+import { lazy, Suspense, useMemo, useRef, useState } from "react";
 import Button from "../components/Button.jsx";
 import Container from "../components/Container.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { buildWhatsAppUrl, useLead } from "../context/LeadContext.jsx";
+import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion.js";
+import { useMediaQuery } from "../hooks/useMediaQuery.js";
 
-export default function Contact({ site, onOpenRfq }) {
+const Scene3D = lazy(() => import("../components/Scene3D.jsx"));
+
+export default function Contact({ site }) {
   const { lead, clearLeadContext } = useLead();
+  const reduceMotion = usePrefersReducedMotion();
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const idleMouseRef = useRef({ x: 0, y: 0 });
   const [form, setForm] = useState({
     nombre: "",
     empresa: "",
@@ -104,8 +111,18 @@ export default function Contact({ site, onOpenRfq }) {
   };
 
   return (
-    <section id="contacto" className="section bg-ink-950 text-white">
-      <Container className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+    <section id="contacto" className="section relative overflow-hidden bg-ink-950 text-white">
+      {!reduceMotion && isDesktop ? (
+        <Suspense fallback={null}>
+          <Scene3D
+            mouseRef={idleMouseRef}
+            variant="orb"
+            className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] opacity-40"
+          />
+        </Suspense>
+      ) : null}
+
+      <Container className="relative grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
         <Reveal as="div" className="space-y-6">
           <p className="text-xs font-semibold uppercase tracking-[0.4em] text-volt-100">
             Contacto
@@ -148,14 +165,6 @@ export default function Contact({ site, onOpenRfq }) {
           <div className="flex flex-wrap gap-3">
             <Button as="a" href={site.whatsappUrl} target="_blank" rel="noreferrer" variant="dark">
               Hablar por WhatsApp
-            </Button>
-            <Button
-              type="button"
-              variant="ghost"
-              onClick={() => onOpenRfq?.()}
-              className="border-white/20 text-white hover:text-white"
-            >
-              Subir / pegar lista (RFQ)
             </Button>
             <Button
               as="a"

@@ -10,53 +10,27 @@ import { useBodyScrollLock } from "./hooks/useBodyScrollLock.js";
 import { useScrollSpy } from "./hooks/useScrollSpy.js";
 import { useStore } from "./context/StoreContext.jsx";
 import {
-  brands,
-  clientLogos,
   categories,
-  certifications,
   ratingSummary,
-  seenIn,
-  ugcPosts,
   enterpriseProof,
-  miniCases,
-  drops,
   faqs,
   highlights,
-  industries,
-  insights,
   navLinks,
-  plans,
   products,
-  productList,
-  retailPitch,
-  services,
   site,
   testimonials,
+  trustBar,
   whyUs
 } from "./data/siteData.js";
-import BrandsMarquee from "./sections/BrandsMarquee.jsx";
-import EnterpriseProof from "./sections/EnterpriseProof.jsx";
-import CaseStudy from "./sections/CaseStudy.jsx";
 import Categories from "./sections/Categories.jsx";
-import Certifications from "./sections/Certifications.jsx";
 import Contact from "./sections/Contact.jsx";
-import Drops from "./sections/Drops.jsx";
 import Faq from "./sections/Faq.jsx";
-import FeaturedKit from "./sections/FeaturedKit.jsx";
 import Hero from "./sections/Hero.jsx";
 import Highlights from "./sections/Highlights.jsx";
-import Industries from "./sections/Industries.jsx";
-import Insights from "./sections/Insights.jsx";
-import Plans from "./sections/Plans.jsx";
 import Products from "./sections/Products.jsx";
-import Process from "./sections/Process.jsx";
-import RetailPitch from "./sections/RetailPitch.jsx";
-import Services from "./sections/Services.jsx";
 import Testimonials from "./sections/Testimonials.jsx";
-import SizeGuide from "./sections/SizeGuide.jsx";
-import MiniCases from "./sections/MiniCases.jsx";
+import TrustBar from "./sections/TrustBar.jsx";
 import WhyUs from "./sections/WhyUs.jsx";
-import SocialProof from "./sections/SocialProof.jsx";
 import StyleGuide from "./sections/StyleGuide.jsx";
 import ProductSheetModal from "./components/ProductSheetModal.jsx";
 import RFQModal from "./components/RFQModal.jsx";
@@ -153,35 +127,21 @@ export default function App() {
         scrollProgress={scrollProgress}
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
-        onOpenRfq={openRfq}
       >
-        <Hero products={products} proof={enterpriseProof} />
+        <Hero products={products} proof={enterpriseProof} rating={ratingSummary} />
       </Header>
+
+        <TrustBar items={trustBar} />
 
         <main id="main">
           {showStyleGuide ? <StyleGuide /> : null}
-          <BrandsMarquee brands={brands} />
-          <EnterpriseProof clientLogos={clientLogos} proof={enterpriseProof} site={site} />
-          <Industries industries={industries} />
           <Products products={products} />
           <Categories categories={categories} />
-          <Services services={services} />
           <WhyUs data={whyUs} />
-          <Drops drops={drops} site={site} />
-          <FeaturedKit productList={productList} />
           <Highlights highlights={highlights} />
-          <SocialProof ratingSummary={ratingSummary} seenIn={seenIn} ugcPosts={ugcPosts} />
-          <CaseStudy onOpenRfq={openRfq} />
-          <MiniCases cases={miniCases} />
-          <Certifications certifications={certifications} />
-          <SizeGuide />
-          <Plans plans={plans} />
-          <RetailPitch data={retailPitch} onOpenRfq={openRfq} />
           <Testimonials testimonials={testimonials} />
-          <Process onOpenRfq={openRfq} />
-          <Insights insights={insights} />
           <Faq faqs={faqs} />
-          <Contact site={site} onOpenRfq={openRfq} />
+          <Contact site={site} />
         </main>
 
         <CatalogModal
