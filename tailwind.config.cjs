@@ -126,12 +126,18 @@ module.exports = {
       backgroundImage: {
         "mesh-hero":
           "radial-gradient(circle at 10% 20%, rgba(255,95,31,0.25) 0%, rgba(255,95,31,0) 50%), radial-gradient(circle at 80% 10%, rgba(90,126,176,0.35) 0%, rgba(90,126,176,0) 55%), radial-gradient(circle at 80% 80%, rgba(217,162,59,0.25) 0%, rgba(217,162,59,0) 55%)",
+        "mesh-hero-dark":
+          "radial-gradient(circle at 14% 12%, rgba(183,255,26,0.20) 0%, rgba(183,255,26,0) 45%), radial-gradient(circle at 88% 8%, rgba(255,95,31,0.16) 0%, rgba(255,95,31,0) 50%), radial-gradient(circle at 78% 92%, rgba(90,126,176,0.22) 0%, rgba(90,126,176,0) 55%)",
         "grid-soft":
           "linear-gradient(transparent 0 0), linear-gradient(90deg, rgba(47,66,99,0.08) 1px, transparent 1px), linear-gradient(rgba(47,66,99,0.08) 1px, transparent 1px)",
+        "grid-dark":
+          "linear-gradient(transparent 0 0), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)",
         "radial-fade":
           "radial-gradient(circle at 50% 0%, rgba(47,66,99,0.18) 0%, rgba(47,66,99,0) 55%)",
         "ink-fade":
           "radial-gradient(circle at 40% 0%, rgba(10,11,18,0.75) 0%, rgba(10,11,18,0) 60%)",
+        "ink-vignette":
+          "radial-gradient(circle at 50% 100%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 60%)",
         "volt-glow":
           "radial-gradient(circle at 60% 30%, rgba(183,255,26,0.25) 0%, rgba(183,255,26,0) 55%)"
       }

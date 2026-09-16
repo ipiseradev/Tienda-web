@@ -69,7 +69,7 @@ function NavLink({ href, label, isActive }) {
     >
       <span>{label}</span>
       <span
-        className={`absolute bottom-[2px] left-1/2 h-[2px] -translate-x-1/2 rounded-full bg-gradient-to-r from-volt-300 via-brass-400 to-ember-500 transition-all duration-300 ${
+        className={`absolute bottom-[2px] left-1/2 h-[2px] -translate-x-1/2 rounded-full bg-volt-300 transition-all duration-300 ${
           isActive ? "w-7 opacity-100" : "w-0 opacity-0"
         }`}
       />
@@ -91,7 +91,7 @@ function NavAction({ label, isActive, onClick }) {
       <span>{label}</span>
       <span
         aria-hidden="true"
-        className={`absolute bottom-[2px] left-1/2 h-[2px] -translate-x-1/2 rounded-full bg-gradient-to-r from-volt-300 via-brass-400 to-ember-500 transition-all duration-300 ${
+        className={`absolute bottom-[2px] left-1/2 h-[2px] -translate-x-1/2 rounded-full bg-volt-300 transition-all duration-300 ${
           isActive ? "w-7 opacity-100" : "w-0 opacity-0"
         }`}
       />
@@ -188,18 +188,18 @@ export default function Header({
   );
 
   return (
-    <header className="relative overflow-x-hidden overflow-y-visible bg-mesh-hero">
+    <header className="relative overflow-x-hidden overflow-y-visible bg-ink-950">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-grid-soft opacity-40 [background-size:32px_32px]"
+        className="pointer-events-none absolute inset-0 bg-mesh-hero-dark"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-radial-fade opacity-65"
+        className="pointer-events-none absolute inset-0 bg-grid-dark opacity-70 [background-size:36px_36px]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-volt-glow opacity-35"
+        className="pointer-events-none absolute inset-0 bg-ink-vignette"
       />
 
       <nav className="sticky top-0 z-50" aria-label="Navegación principal">
@@ -210,13 +210,13 @@ export default function Header({
         >
           <div className="w-full px-4 py-3 sm:px-6 md:px-10 lg:px-14 2xl:px-20">
             <div
-              className={`relative flex items-center gap-4 rounded-[22px] border border-steel-200/70 bg-white/60 px-4 py-3 shadow-soft backdrop-blur-xl transition duration-300 md:px-5 ${
+              className={`relative flex items-center justify-between gap-3 rounded-[22px] border border-steel-200/70 bg-white/60 px-3 py-2.5 shadow-soft backdrop-blur-xl transition duration-300 sm:gap-4 sm:px-4 sm:py-3 md:px-5 ${
                 hasScrolled ? "bg-white/78 shadow-[0_18px_55px_rgba(20,35,60,0.10)]" : ""
               }`}
             >
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-x-5 -top-px hidden h-px bg-gradient-to-r from-volt-300 via-brass-400 to-ember-500 md:block"
+                className="pointer-events-none absolute inset-x-5 -top-px hidden h-px bg-volt-300 md:block"
                 style={{
                   clipPath: `inset(0 ${
                     (1 - Math.max(0, Math.min(1, scrollProgress))) * 100
@@ -315,11 +315,7 @@ export default function Header({
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 lg:hidden">
-                <IconButton label="Buscar" title="Buscar" onClick={() => openCatalog("Todos")}>
-                  <IconSearch className="h-[18px] w-[18px]" />
-                </IconButton>
-
+              <div className="flex shrink-0 items-center gap-1.5 sm:gap-2 lg:hidden">
                 <IconButton
                   label="Carrito"
                   title="Carrito"
@@ -329,21 +325,9 @@ export default function Header({
                   <IconList className="h-[18px] w-[18px]" />
                 </IconButton>
 
-                <Button
-                  variant="accent"
-                  type="button"
-                  className="cta-shine px-5 py-2.5"
-                  onClick={() => {
-                    setLeadContext({ topic: "CTA: Encontrar mi talle (mobile)", source: "header_cta_mobile" });
-                    openFitFinder?.();
-                  }}
-                >
-                  Mi talle
-                </Button>
-
                 <button
                   type="button"
-                  className="focus-ring inline-flex items-center justify-center rounded-2xl border border-steel-200/80 bg-white/55 px-4 py-3 text-sm font-semibold text-ink-950 backdrop-blur-xl transition duration-300 hover:bg-white active:scale-[0.98]"
+                  className="focus-ring inline-flex h-11 items-center justify-center rounded-2xl border border-steel-200/80 bg-white/55 px-4 text-sm font-semibold text-ink-950 backdrop-blur-xl transition duration-300 hover:bg-white active:scale-[0.98]"
                   aria-label="Abrir menú"
                   aria-expanded={isMenuOpen ? "true" : "false"}
                   aria-controls="mobile-menu"

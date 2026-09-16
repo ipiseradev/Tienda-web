@@ -1,9 +1,10 @@
-import { useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useMemo, useRef, useState } from "react";
 import Button from "../components/Button.jsx";
 import Container from "../components/Container.jsx";
 import Reveal from "../components/Reveal.jsx";
 import HeroVisual from "../components/HeroVisual.jsx";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion.js";
+import { useMediaQuery } from "../hooks/useMediaQuery.js";
 import { useStore } from "../context/StoreContext.jsx";
 import { useLead } from "../context/LeadContext.jsx";
 
@@ -57,7 +58,7 @@ function OptionCard({ title, subtitle, selected, onClick }) {
 
 function ProofPill({ label, value }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-steel-200/70 bg-white/80 px-3 py-1.5 text-xs font-semibold text-ink-700 shadow-[0_6px_18px_rgba(15,23,42,0.04)]">
+    <span className="inline-flex items-center gap-2 rounded-full border border-ink-950/10 bg-white px-3 py-1.5 text-xs font-semibold text-ink-700 shadow-[0_6px_18px_rgba(15,23,42,0.04)]">
       <span className="text-ink-500">{label}</span>
       <span className="text-ink-950">{value}</span>
     </span>
@@ -88,6 +89,8 @@ function SampleProductTile({ product }) {
   );
 }
 
+const Scene3D = lazy(() => import("../components/Scene3D.jsx"));
+
 function recommendSize({ heightCm, weightKg, fit }) {
   const h = Number(heightCm);
   const w = Number(weightKg);
@@ -113,13 +116,15 @@ function recommendSize({ heightCm, weightKg, fit }) {
   return base;
 }
 
-export default function Hero({ products = [], proof }) {
+export default function Hero({ products = [], proof, rating }) {
   const reduceMotion = usePrefersReducedMotion();
+  const isDesktop = useMediaQuery("(min-width: 768px)");
   const { openCatalog, openFitFinder, fitProfile, setFitProfile } = useStore();
   const { setLeadContext } = useLead();
 
   const parallaxRef = useRef(null);
   const flowRef = useRef(null);
+  const sceneMouseRef = useRef({ x: 0, y: 0 });
 
   const [step, setStep] = useState(1);
   const [sport, setSport] = useState("");
@@ -208,31 +213,40 @@ export default function Hero({ products = [], proof }) {
   };
 
   return (
-    <section className="section relative overflow-hidden">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ink-fade opacity-55" />
-
+    <section className="section relative overflow-hidden pb-20 pt-8 sm:pt-10 lg:pb-28 lg:pt-14">
       <Container className="relative grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14">
         <div className="space-y-7 lg:pt-2">
-          <Reveal as="div" variant="blur" delayMs={0} className="inline-flex">
-            <span className="chip">Encontrá tu talle en menos de 1 min • sin devoluciones</span>
+          <Reveal as="div" variant="blur" delayMs={0} className="inline-flex max-w-full">
+            <span className="chip !rounded-2xl text-left sm:!rounded-full">
+              Encontrá tu talle en menos de 1 min • sin devoluciones
+            </span>
           </Reveal>
 
           <Reveal as="div" variant="blur" delayMs={50} className="flex flex-wrap items-center gap-2">
+            {rating?.rating ? (
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-ink-950/10 bg-white px-3 py-1.5 text-xs font-semibold text-ink-700 shadow-[0_6px_18px_rgba(15,23,42,0.04)]">
+                <span aria-hidden="true" className="text-volt-500">★</span>
+                <span className="text-ink-950">{Number(rating.rating).toFixed(1)}</span>
+                <span className="text-ink-500">
+                  ({Number(rating.reviews || 0).toLocaleString("es-AR")}+ reseñas)
+                </span>
+              </span>
+            ) : null}
             <ProofPill label={metrics.pedidos.label} value={metrics.pedidos.value} />
             <ProofPill label={metrics.entrega.label} value={metrics.entrega.value} />
             <ProofPill label={metrics.soporte.label} value={metrics.soporte.value} />
           </Reveal>
 
           <Reveal as="div" variant="blur" delayMs={110}>
-            <h1 className="nike-h1 max-w-[16ch]">
+            <h1 className="nike-h1 max-w-[16ch] text-white">
               ¿Cansado de errarle al talle?
               <span className="block">
                 Encontralo{" "}
                 <span className="relative inline-block text-ink-950">
-                  sin errores
+                  <span className="relative z-10">sin errores</span>
                   <span
                     aria-hidden="true"
-                    className="absolute -inset-x-1 bottom-[0.08em] -z-10 h-[0.5em] rounded-[14px] bg-volt-300/34"
+                    className="absolute -inset-x-1.5 bottom-[0.04em] -z-0 h-[0.55em] rounded-[10px] bg-volt-300"
                   />
                 </span>{" "}
                 en 1 minuto.
@@ -241,10 +255,8 @@ export default function Hero({ products = [], proof }) {
           </Reveal>
 
           <Reveal as="div" variant="blur" delayMs={170}>
-            <p className="max-w-2xl text-base leading-relaxed text-ink-700 sm:text-lg">
+            <p className="max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
               Respondé 3 preguntas y encontrá tu talle exacto para comprar con más confianza y evitar devoluciones.
-              <span className="font-semibold text-ink-950">
-                </span>
             </p>
           </Reveal>
 
@@ -257,24 +269,24 @@ export default function Hero({ products = [], proof }) {
                 onClick={onPrimary}
               >
                 Encontrar mi talle
-                <IconArrowRight className="h-[18px] w-[18px] opacity-90" />
+                <IconArrowRight className="h-[18px] w-[18px] opacity-90 transition duration-300 group-hover:translate-x-1" />
               </Button>
 
               <Button
                 variant="ghost"
                 type="button"
-                className="inline-flex w-full items-center justify-center gap-2 sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-2 border-white/25 bg-white/5 text-white hover:border-white/40 hover:bg-white/10 hover:text-white sm:w-auto"
                 onClick={onSecondary}
               >
                 Ver catálogo
-                <IconArrowRight className="opacity-60" />
+                <IconArrowRight className="h-[18px] w-[18px] opacity-60 transition duration-300 group-hover:translate-x-1 group-hover:opacity-90" />
               </Button>
             </div>
 
-            <p className="text-sm font-semibold text-ink-600">
+            <p className="text-sm font-semibold text-white/60">
               {hasExactSize ? (
                 <>
-                  Tu talle guardado: <span className="text-ink-950">{recommendedSize}</span>
+                  Tu talle guardado: <span className="text-white">{recommendedSize}</span>
                 </>
               ) : (
                 <>Sin registro • guardamos tu preferencia en este dispositivo</>
@@ -285,7 +297,7 @@ export default function Hero({ products = [], proof }) {
           <Reveal as="div" variant="blur" delayMs={260}>
             <div
               ref={flowRef}
-              className={`max-w-2xl rounded-[30px] border border-steel-200/70 bg-white/78 p-5 shadow-soft backdrop-blur transition ${
+              className={`max-w-2xl rounded-[30px] border border-white/10 bg-white p-5 shadow-ink transition ${
                 flowPulse ? "ring-2 ring-volt-300/50" : ""
               }`}
             >
@@ -467,7 +479,7 @@ export default function Hero({ products = [], proof }) {
             </div>
           </Reveal>
 
-          <Reveal as="p" variant="blur" delayMs={320} className="text-sm font-semibold text-ink-600">
+          <Reveal as="p" variant="blur" delayMs={320} className="text-sm font-semibold text-white/55">
             Entrega rápida en todo el país • soporte real cuando lo necesitás
           </Reveal>
         </div>
@@ -486,16 +498,22 @@ export default function Hero({ products = [], proof }) {
               const el = parallaxRef.current;
               if (!el) return;
               const rect = el.getBoundingClientRect();
-              const x = ((e.clientX - rect.left) / rect.width - 0.5) * 10;
-              const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
+              const nx = (e.clientX - rect.left) / rect.width - 0.5;
+              const ny = (e.clientY - rect.top) / rect.height - 0.5;
+              const x = nx * 10;
+              const y = ny * 10;
               el.style.setProperty("--px", `${x.toFixed(2)}px`);
               el.style.setProperty("--py", `${y.toFixed(2)}px`);
+              sceneMouseRef.current.x = nx * 2;
+              sceneMouseRef.current.y = ny * 2;
             }}
             onMouseLeave={() => {
               const el = parallaxRef.current;
               if (!el) return;
               el.style.setProperty("--px", "0px");
               el.style.setProperty("--py", "0px");
+              sceneMouseRef.current.x = 0;
+              sceneMouseRef.current.y = 0;
             }}
             style={{ "--px": "0px", "--py": "0px" }}
           >
@@ -509,10 +527,20 @@ export default function Hero({ products = [], proof }) {
               <HeroVisual />
             </div>
 
-            <div aria-hidden="true" className="pointer-events-none absolute -inset-10 rounded-[40px] bg-volt-300/14 blur-3xl" />
+            {!reduceMotion && isDesktop ? (
+              <Suspense fallback={null}>
+                <Scene3D
+                  mouseRef={sceneMouseRef}
+                  variant="core"
+                  className="pointer-events-none absolute -inset-16 opacity-80 sm:-inset-24 lg:-inset-28"
+                />
+              </Suspense>
+            ) : null}
+
+            <div aria-hidden="true" className="pointer-events-none absolute -inset-10 rounded-[40px] bg-volt-300/18 blur-3xl" />
             <div aria-hidden="true" className="pointer-events-none absolute -inset-10 translate-x-8 translate-y-8 rounded-[40px] bg-ember-500/10 blur-3xl" />
 
-            <div className="relative z-10 overflow-hidden rounded-[32px] border border-steel-200/70 bg-white/80 shadow-soft backdrop-blur sm:bg-white/64">
+            <div className="relative z-10 overflow-hidden rounded-[32px] border border-white/10 bg-white shadow-ink">
               <div className="flex items-center justify-between gap-4 p-5">
                 <div className="min-w-0">
                   <p className="nike-kicker">Recomendación en vivo</p>
@@ -521,13 +549,13 @@ export default function Hero({ products = [], proof }) {
                   </p>
                 </div>
 
-                <span className="rounded-full border border-steel-200/70 bg-white/80 px-3 py-1 text-xs font-semibold text-ink-700">
+                <span className="rounded-full border border-steel-200/70 bg-white px-3 py-1 text-xs font-semibold text-ink-700">
                   Fit: {fitPref || "Regular"}
                 </span>
               </div>
 
               <div className="px-5 pb-5">
-                <div className="rounded-3xl border border-steel-200/70 bg-white/80 p-5">
+                <div className="rounded-3xl border border-steel-200/70 bg-ink-50/60 p-5">
                   <p className="nike-kicker">Producto sugerido</p>
                   <p className="mt-2 text-xl font-semibold text-ink-950">
                     {selectedSport?.label || "Elegí un deporte"}

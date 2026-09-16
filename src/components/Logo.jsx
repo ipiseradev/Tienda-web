@@ -10,11 +10,19 @@ export default function Logo({
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <div
-        className={`flex h-11 w-11 items-center justify-center rounded-2xl shadow-ink ${
-          isLight ? "bg-white text-ink-950" : "bg-ink-950 text-white"
+        className={`relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl shadow-ink ${
+          isLight
+            ? "bg-white text-ink-950"
+            : "bg-gradient-to-br from-ink-900 to-ink-950 text-white"
         }`}
       >
-        {mark}
+        {!isLight ? (
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -inset-1 bg-gradient-to-br from-volt-300/70 via-transparent to-transparent opacity-60 blur-md"
+          />
+        ) : null}
+        <span className="relative font-display tracking-tight">{mark}</span>
       </div>
       <div>
         <p

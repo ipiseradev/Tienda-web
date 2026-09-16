@@ -37,7 +37,7 @@ export default function HeroVisual() {
       <div className="absolute -bottom-10 right-24 h-56 w-56 rounded-full bg-ember-500/14 blur-3xl motion-safe:animate-float motion-safe:[animation-delay:-3.6s]" />
 
       {/* Overlay to fuse the tool with the existing hero background */}
-      <div className="absolute inset-0 bg-gradient-to-l from-white/0 via-white/0 to-white/35 lg:to-ink-950/15" />
+      <div className="absolute inset-0 bg-gradient-to-l from-ink-950/0 via-ink-950/0 to-ink-950/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-ink-950/12 via-transparent to-transparent" />
 
       {/* Soft mask fade so image doesn't fight the card */}

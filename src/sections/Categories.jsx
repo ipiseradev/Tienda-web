@@ -39,7 +39,7 @@ export default function Categories({ categories }) {
 
         <Reveal
           as="div"
-          className="mt-12 overflow-hidden rounded-[28px] border border-steel-200/70 bg-white/80 shadow-soft backdrop-blur"
+          className="mt-12 overflow-hidden rounded-[28px] border border-ink-950/8 bg-white shadow-soft"
         >
           <div className="relative">
             <div

@@ -1,5 +1,6 @@
 import { useStore } from "../context/StoreContext.jsx";
 import { useLead } from "../context/LeadContext.jsx";
+import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion.js";
 
 function ArrowRight({ className = "" }) {
   return (
@@ -107,25 +108,26 @@ function hexToRgb(hex) {
 
 function chipsFor(title) {
   const t = String(title || "").toLowerCase();
-  if (t.includes("herramient")) return ["Taladros", "Amoladoras", "Accesorios"];
-  if (t.includes("fijac")) return ["Tornillos", "Tarugos", "Anclajes"];
-  if (t.includes("abras")) return ["Discos", "Lijas", "Corte"];
-  if (t.includes("epp")) return ["Guantes", "Lentes", "Protección"];
-  return ["Stock", "Pro", "Industrial"];
+  if (t.includes("training")) return ["Básicos", "Calce regular", "Gym"];
+  if (t.includes("running")) return ["Liviano", "Transpirable", "Running"];
+  if (t.includes("studio")) return ["Soporte", "Flex", "Studio"];
+  if (t.includes("outdoor")) return ["Corta viento", "Abrigo", "Trail"];
+  return ["Stock", "Nuevo", "Top"];
 }
 
 function iconFor(title) {
   const t = String(title || "").toLowerCase();
-  if (t.includes("herramient")) return "wrench";
-  if (t.includes("fijac")) return "bolt";
-  if (t.includes("abras")) return "disc";
-  if (t.includes("epp")) return "shield";
+  if (t.includes("training")) return "disc";
+  if (t.includes("running")) return "shoe";
+  if (t.includes("studio")) return "shield";
+  if (t.includes("outdoor")) return "mountain";
   return "bag";
 }
 
 export default function CollectionCard({ item, layout = "standard" }) {
   const { openCatalog } = useStore();
   const { setLeadContext } = useLead();
+  const reduceMotion = usePrefersReducedMotion();
   const isFeatured = layout === "featured";
   const isWide = layout === "wide";
   const defaultLine = item?.defaultLine || "Todos";
@@ -139,25 +141,33 @@ export default function CollectionCard({ item, layout = "standard" }) {
     <button
       type="button"
       aria-label={`Ver categoría ${item.title}`}
-      className="focus-ring group relative h-full min-h-[240px] overflow-hidden rounded-[28px] border border-white/20 bg-ink-950/35 text-left shadow-[0_22px_70px_rgba(10,11,18,0.18)] backdrop-blur-md transition duration-300 ease-out-quint hover:-translate-y-0.5 hover:border-white/30 active:translate-y-0 sm:min-h-[260px]"
+      className="focus-ring group relative h-full min-h-[240px] overflow-hidden rounded-[28px] border border-white/20 bg-ink-950/35 text-left shadow-[0_22px_70px_rgba(10,11,18,0.18)] backdrop-blur-md transition duration-300 ease-out-quint hover:border-white/30 active:translate-y-0 sm:min-h-[260px]"
       style={{
         "--accent": accent,
         "--accent-rgb": `${r} ${g} ${b}`,
         "--mx": "30%",
-        "--my": "30%"
+        "--my": "30%",
+        transition: "transform 300ms cubic-bezier(0.22, 1, 0.36, 1)",
+        willChange: "transform"
       }}
       onMouseMove={(e) => {
         const el = e.currentTarget;
         const rect = el.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        el.style.setProperty("--mx", `${x.toFixed(2)}%`);
-        el.style.setProperty("--my", `${y.toFixed(2)}%`);
+        const px = (e.clientX - rect.left) / rect.width;
+        const py = (e.clientY - rect.top) / rect.height;
+        el.style.setProperty("--mx", `${(px * 100).toFixed(2)}%`);
+        el.style.setProperty("--my", `${(py * 100).toFixed(2)}%`);
+        if (!reduceMotion) {
+          const rotateY = (px - 0.5) * 6;
+          const rotateX = -(py - 0.5) * 6;
+          el.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
+        }
       }}
       onMouseLeave={(e) => {
         const el = e.currentTarget;
         el.style.setProperty("--mx", "30%");
         el.style.setProperty("--my", "30%");
+        el.style.transform = "";
       }}
       onClick={() => {
         setLeadContext({ topic: `Categoría: ${item.title}`, source: "category_card" });

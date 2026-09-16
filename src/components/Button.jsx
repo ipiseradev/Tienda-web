@@ -12,7 +12,7 @@ const Button = forwardRef(function Button(
   };
   const base = variants[variant] || variants.primary;
   return (
-    <As ref={ref} className={`${base} focus-ring ${className}`} {...props}>
+    <As ref={ref} className={`group ${base} focus-ring ${className}`} {...props}>
       {children}
     </As>
   );
