@@ -215,142 +215,142 @@ export default function CatalogModal({
             reduceMotion ? "" : "animate-revealBlur"
           }`}
         >
-          <div className="sticky top-0 z-10 flex flex-wrap items-center justify-between gap-4 border-b border-steel-100 bg-white/80 px-6 py-5 backdrop-blur">
-            <div className="min-w-[240px]">
-              <p className="nike-kicker">Catálogo</p>
-              <p className="mt-2 text-2xl font-semibold tracking-tight text-ink-950">
-                Ver todo el catálogo
-              </p>
-              <p className="mt-1 text-sm text-ink-600">{filtered.length} items</p>
-            </div>
-
-            <div className="flex flex-1 flex-wrap items-center justify-end gap-3">
-              <div className="w-full max-w-[340px]">
-                <input
-                  ref={searchRef}
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  className="focus-ring w-full rounded-full border border-steel-200 bg-white px-5 py-3 text-sm text-ink-950 placeholder:text-ink-400"
-                  placeholder='Buscar (ej: "remera", "calza", "running")'
-                  aria-label="Buscar prendas"
-                />
-              </div>
-
-              <div className="flex flex-wrap items-center gap-2">
-                {lines.map((l) => (
-                  <button
-                    key={l}
-                    type="button"
-                    className={`focus-ring rounded-full border px-4 py-2 text-xs font-semibold transition ${
-                      l === line
-                        ? "border-ink-950 bg-ink-950 text-white shadow-ink ring-2 ring-volt-300/35"
-                        : "border-steel-200 bg-white text-ink-700 hover:border-steel-300 hover:bg-ink-50"
-                    }`}
-                    onClick={() => setLine(l)}
-                  >
-                    {l}
-                  </button>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap items-center gap-2">
-                <select
-                  className="focus-ring rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700"
-                  value={discipline}
-                  onChange={(e) => setDiscipline(e.target.value)}
-                  aria-label="Filtrar por disciplina"
-                >
-                  {disciplines.map((d) => (
-                    <option key={d} value={d}>
-                      Disciplina: {d}
-                    </option>
-                  ))}
-                </select>
-                <select
-                  className="focus-ring rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700"
-                  value={brand}
-                  onChange={(e) => setBrand(e.target.value)}
-                  aria-label="Filtrar por marca"
-                >
-                  {brands.map((b) => (
-                    <option key={b} value={b}>
-                      Marca: {b}
-                    </option>
-                  ))}
-                </select>
-                <select
-                  className="focus-ring rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700"
-                  value={size}
-                  onChange={(e) => setSize(e.target.value)}
-                  aria-label="Filtrar por talle"
-                >
-                  {sizes.map((s) => (
-                    <option key={s} value={s}>
-                      Talle: {s}
-                    </option>
-                  ))}
-                </select>
-                <select
-                  className="focus-ring rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700"
-                  value={measure}
-                  onChange={(e) => setMeasure(e.target.value)}
-                  aria-label="Filtrar por medida"
-                >
-                  {measures.map((m) => (
-                    <option key={m} value={m}>
-                      Medida: {m}
-                    </option>
-                  ))}
-                </select>
-                <input
-                  value={minPrice}
-                  onChange={(e) => setMinPrice(e.target.value)}
-                  inputMode="numeric"
-                  className="focus-ring w-[120px] rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700 placeholder:text-ink-400"
-                  placeholder={priceBounds.min ? `Min ${priceBounds.min}` : "Min"}
-                  aria-label="Precio mínimo"
-                />
-                <input
-                  value={maxPrice}
-                  onChange={(e) => setMaxPrice(e.target.value)}
-                  inputMode="numeric"
-                  className="focus-ring w-[120px] rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700 placeholder:text-ink-400"
-                  placeholder={priceBounds.max ? `Max ${priceBounds.max}` : "Max"}
-                  aria-label="Precio máximo"
-                />
-                <select
-                  className="focus-ring rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700"
-                  value={sort}
-                  onChange={(e) => setSort(e.target.value)}
-                  aria-label="Ordenar catálogo"
-                >
-                  <option value="relevance">Orden: Relevancia</option>
-                  <option value="best_sellers">Orden: Más vendidos</option>
-                  <option value="stock_desc">Orden: Stock</option>
-                  <option value="price_asc">Orden: Precio ↑</option>
-                  <option value="price_desc">Orden: Precio ↓</option>
-                  <option value="name_asc">Orden: Nombre</option>
-                </select>
-                <label className="focus-ring inline-flex items-center gap-2 rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700">
-                  <input
-                    type="checkbox"
-                    checked={stockOnly}
-                    onChange={(e) => setStockOnly(e.target.checked)}
-                    className="h-4 w-4 accent-ink-950"
-                  />
-                  Solo stock
-                </label>
+          <div className="sticky top-0 z-10 shrink-0 border-b border-steel-100 bg-white/90 backdrop-blur">
+            <div className="flex items-start justify-between gap-3 px-4 pt-4 sm:px-6 sm:pt-5">
+              <div className="min-w-0">
+                <p className="nike-kicker">Catálogo</p>
+                <p className="mt-1 truncate text-xl font-semibold tracking-tight text-ink-950 sm:mt-2 sm:text-2xl">
+                  Ver todo el catálogo
+                </p>
+                <p className="mt-1 text-xs text-ink-600 sm:text-sm">{filtered.length} items</p>
               </div>
 
               <Button
                 variant="dark"
                 type="button"
-                className="cta-shine px-6 py-3"
+                className="shrink-0 px-5 py-2.5 sm:px-6 sm:py-3"
                 onClick={onClose}
                 ref={closeButtonRef}
               >
                 Cerrar
               </Button>
+            </div>
+
+            <div className="px-4 pt-3 sm:px-6">
+              <input
+                ref={searchRef}
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                className="focus-ring w-full rounded-full border border-steel-200 bg-white px-5 py-3 text-sm text-ink-950 placeholder:text-ink-400"
+                placeholder='Buscar (ej: "remera", "calza", "running")'
+                aria-label="Buscar prendas"
+              />
+            </div>
+
+            <div className="no-scrollbar mt-3 flex items-center gap-2 overflow-x-auto px-4 pb-4 sm:px-6 sm:pb-5">
+              {lines.map((l) => (
+                <button
+                  key={l}
+                  type="button"
+                  className={`focus-ring shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-xs font-semibold transition ${
+                    l === line
+                      ? "border-ink-950 bg-ink-950 text-white shadow-ink ring-2 ring-volt-300/35"
+                      : "border-steel-200 bg-white text-ink-700 hover:border-steel-300 hover:bg-ink-50"
+                  }`}
+                  onClick={() => setLine(l)}
+                >
+                  {l}
+                </button>
+              ))}
+
+              <span className="h-6 w-px shrink-0 bg-steel-200" aria-hidden="true" />
+
+              <select
+                className="focus-ring shrink-0 rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700"
+                value={discipline}
+                onChange={(e) => setDiscipline(e.target.value)}
+                aria-label="Filtrar por disciplina"
+              >
+                {disciplines.map((d) => (
+                  <option key={d} value={d}>
+                    Disciplina: {d}
+                  </option>
+                ))}
+              </select>
+              <select
+                className="focus-ring shrink-0 rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700"
+                value={brand}
+                onChange={(e) => setBrand(e.target.value)}
+                aria-label="Filtrar por marca"
+              >
+                {brands.map((b) => (
+                  <option key={b} value={b}>
+                    Marca: {b}
+                  </option>
+                ))}
+              </select>
+              <select
+                className="focus-ring shrink-0 rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700"
+                value={size}
+                onChange={(e) => setSize(e.target.value)}
+                aria-label="Filtrar por talle"
+              >
+                {sizes.map((s) => (
+                  <option key={s} value={s}>
+                    Talle: {s}
+                  </option>
+                ))}
+              </select>
+              <select
+                className="focus-ring shrink-0 rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700"
+                value={measure}
+                onChange={(e) => setMeasure(e.target.value)}
+                aria-label="Filtrar por medida"
+              >
+                {measures.map((m) => (
+                  <option key={m} value={m}>
+                    Medida: {m}
+                  </option>
+                ))}
+              </select>
+              <input
+                value={minPrice}
+                onChange={(e) => setMinPrice(e.target.value)}
+                inputMode="numeric"
+                className="focus-ring w-[110px] shrink-0 rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700 placeholder:text-ink-400"
+                placeholder={priceBounds.min ? `Min ${priceBounds.min}` : "Min"}
+                aria-label="Precio mínimo"
+              />
+              <input
+                value={maxPrice}
+                onChange={(e) => setMaxPrice(e.target.value)}
+                inputMode="numeric"
+                className="focus-ring w-[110px] shrink-0 rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700 placeholder:text-ink-400"
+                placeholder={priceBounds.max ? `Max ${priceBounds.max}` : "Max"}
+                aria-label="Precio máximo"
+              />
+              <select
+                className="focus-ring shrink-0 rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700"
+                value={sort}
+                onChange={(e) => setSort(e.target.value)}
+                aria-label="Ordenar catálogo"
+              >
+                <option value="relevance">Orden: Relevancia</option>
+                <option value="best_sellers">Orden: Más vendidos</option>
+                <option value="stock_desc">Orden: Stock</option>
+                <option value="price_asc">Orden: Precio ↑</option>
+                <option value="price_desc">Orden: Precio ↓</option>
+                <option value="name_asc">Orden: Nombre</option>
+              </select>
+              <label className="focus-ring inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-steel-200 bg-white px-4 py-2 text-xs font-semibold text-ink-700">
+                <input
+                  type="checkbox"
+                  checked={stockOnly}
+                  onChange={(e) => setStockOnly(e.target.checked)}
+                  className="h-4 w-4 accent-ink-950"
+                />
+                Solo stock
+              </label>
             </div>
           </div>
 
